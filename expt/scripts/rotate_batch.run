@@ -8,12 +8,43 @@
 #PBS -M paul.gierz@awi.de
 
 #TODO
-# code for expid and filename automation
-# code to generate seperate files with 30 timesteps per file.
+# code for expid and filename automation <-- Done, needs testing
+# code to generate seperate files with 30 timesteps per file. <-- Done, needs testing
 # code for WORKLIST generation
+#   Notes: the WORKLIST needs to list all cdo seperated files WITHOUT nc extension
 
+##### BEGIN USER INTERFACE
+#
+Exp_ID=$1   # CHECKME: Can arguements be passed via qsub?
+Data_source=$2  #Provide path in /csys/**/** that points to the RAW input file you want to use! (unrotated grid)
+#   P. Gierz, 14.10.2013
+##### END USER INTERFACE
 cd /uv/user/pgierz/tracers_1p2/expt/scripts
-lastfile='RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000001'    #define first lastfile by hand
+
+source /uv/user/pgierz/tracers_1p2/expt/scripts/new_run.sh $Exp_ID
+
+#check that the raw inputs folder is empty by moving everything to the backups.
+mv -rf /uv/user/pgierz/tracers_1p2/expt/raw_inputs/* /uv/user/pgierz/tracers_1p2/expt/raw_inputs_backups/
+
+#link to raw data and split files
+ln -s $Data_source /uv/user/pgierz/tracers_1p2/expt/raw_inputs/data_raw
+cdo -f nc -t mpiom1 -splitsel,30 -selcode,3,4,7 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/data_raw /uv/user/pgierz/tracers_1p2/expt/raw_inputs/${Exp_ID}_velocity_
+
+# Make the WORKLIST file
+for f in *nc;
+do
+    echo ${f%.*} >> WORKLIST;
+done
+exit
+
+#lastfile='RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000001'    #define first lastfile by hand
+lastfile='XXXX'    #define first lastfile by hand
+# NOTE: This lastfile does not need to be necessarily rotated by hand, it simply needs to
+# be a name of the file in the matlab script that can be replaced.
+# TODO Consider replacing the lastfile by an arbitrary XXXX in a matlab_templat.m file
+# that is then copied at the beginning of the loop. <-- Done, needs testing
+
+
 #get length of WORKLIST to see how often to run matlab batch
 redo=`sed -n '$=' /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST`
 
@@ -23,16 +54,14 @@ for i in $(seq 1 $redo);
 do
     #echo $i;
     file=`head -1 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST`
-    #echo "sed -i 's/${lastfile}/${file}/g' /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m"
-    sed -i "s/${lastfile}/${file}/g" /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m # changes the file in the matlab scripts
+    sed "s/${lastfile}/${file}/g" /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_template.m > /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m # changes the file in the matlab scripts
     cp /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template
     rm /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST
     sed -e '1d' /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template > /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST
     rm /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template
-    matlab -nodisplay -r "run('/uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m');"
+#   matlab -nodisplay -r "run('/uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m');"
+#   Temporarily disabled matlab command to do some tests
     wait
-    lastfile=${file}    #lastfile is file 
-    #echo "$lastfile"
 done
 
 # when everything is done, consider doing a cdo cat and doing python make_inputs.py to make nest links.

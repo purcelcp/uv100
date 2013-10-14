@@ -1,9 +1,0 @@
- Setting parameter restartwriteFreq to that of 10 * outputFreq at       864000
- Not using vertical velocity data
- Not using temperature data
- ==========================================
- File name  : traj_file_1.nc
- Total number release locations     : 2 (1 to 2)
- Total number of particles released : 20
- Total number of time steps   : 4
- Total number of time steps in output file: 3

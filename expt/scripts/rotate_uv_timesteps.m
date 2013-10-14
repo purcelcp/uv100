@@ -26,7 +26,7 @@ lat = permute(lat,[2,1]);
 netcdf.close(ncid_file2);
 
 %filename = ['/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity.nc'];
-filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021.nc']
+filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003.nc']
 
 ncid_file   = netcdf.open([filename],'NC_WRITE');
 varid_u = netcdf.inqVarID(ncid_file,'UKO');
@@ -93,20 +93,12 @@ fprintf('Regridding...');
 
 clear all;
 
-% Probaly, you will be requested to type in your password, because the
-% switch of computer server is essential for using cdo commonds
-%unix('ssh rayo3 "/opt/cdo-1.5.4/bin/cdo -t mpiom1 -f nc setgrid,/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc -setgrid,r122x101 /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity.nc /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid.nc"'); 
-%unix('ssh rayo3 "/opt/cdo-1.5.4/bin/cdo remapcon,r360x180 /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid.nc /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid_r360x180.nc"'); 
-%unix('cp /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid_r360x180.nc /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid_r360x180_final.nc');
-%unix('cp /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid_r360x180.nc /csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_normalgrid_r360x180_final.nc');
 
-% This part has been changed, since cdo runs on uv100
+unix('cdo -t mpiom1 -f nc setgrid,/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc -setgrid,r122x101 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid.nc');
+unix('cdo remapcon,r360x180 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid_r360x180.nc');
+unix('mv /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid_r360x180.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid_r360x180_final.nc');
 
-unix('cdo -t mpiom1 -f nc setgrid,/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc -setgrid,r122x101 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid.nc');
-unix('cdo remapcon,r360x180 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid_r360x180.nc');
-unix('mv /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid_r360x180.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid_r360x180_final.nc');
-
-filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000021_normalgrid_r360x180_final.nc'];
+filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP6m_velocity_000003_normalgrid_r360x180_final.nc'];
 ncid_file   = netcdf.open([filename],'NC_WRITE');
 varid_u = netcdf.inqVarID(ncid_file,'UKO');
 u_original = netcdf.getVar(ncid_file,varid_u);

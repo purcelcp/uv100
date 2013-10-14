@@ -1,0 +1,40 @@
+&runconf
+!====================================================================!
+nnests               = 1 
+timeMax              = 31536000 
+timestep             = 86400
+outputFreq           = 86400
+releaseFilename      = "releaseFile" 
+!====================================================================!
+!Turbulence Module
+turb                 = .false.
+horDiff              = 2                !horizontal diffusivity
+vertDiff             = 0.5              !vertical diffusivity
+turbTimestep         = 2700             !in seconds
+!====================================================================!
+!Periodic Boundary Condition
+periodicbc           = .true.
+!====================================================================!
+!Landmask Boundary Condition 
+avoidcoast           = .false.
+!====================================================================!
+!Backward Tracking Module
+backward             = .false.
+!====================================================================!
+!Output files in ASCII instead of netCDF
+ascii                = .false.
+!====================================================================!
+!Flag for putting particles back in the ocean when they go through the
+!uppermost depth level
+upperlevelsurface       = .true.
+!====================================================================!
+!Flag for looping through the velocity fields
+loopfiles               = .true.
+loopfilesstartyear      = 2909
+loopfilesstartmonth     = 1
+loopfilesstartday       = 1
+loopfilesendyear        = 2909
+loopfilesendmonth       = 12
+loopfilesendday         = 31
+!====================================================================!
+&end

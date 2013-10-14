@@ -1,0 +1,40 @@
+#PBS -N rotate_batch
+#PBS -l walltime=96:00:00
+#PBS -l select=1:ncpus=1
+#PBS -j oe
+#PBS -m bea
+#PBS -S /bin/bash
+#PBS -r n
+#PBS -M paul.gierz@awi.de
+
+#TODO
+# code for expid and filename automation
+# code to generate seperate files with 30 timesteps per file.
+# code for WORKLIST generation
+
+cd /uv/user/pgierz/tracers_1p2/expt/scripts
+lastfile='RCP4.5m-r_mpiom_3336-3389_Clim_velocity_000001'    #define first lastfile by hand
+#get length of WORKLIST to see how often to run matlab batch
+redo=`sed -n '$=' /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST`
+
+
+# Main loop
+for i in $(seq 1 $redo);
+do
+    #echo $i;
+    file=`head -1 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST`
+    #echo "sed -i 's/${lastfile}/${file}/g' /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m"
+    sed -i "s/${lastfile}/${file}/g" /uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m # changes the file in the matlab scripts
+    cp /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template
+    rm /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST
+    sed -e '1d' /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template > /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST
+    rm /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST_template
+    matlab -nodisplay -r "run('/uv/user/pgierz/tracers_1p2/expt/scripts/rotate_uv_timesteps.m');"
+    wait
+    lastfile=${file}    #lastfile is file 
+    #echo "$lastfile"
+done
+
+# when everything is done, consider doing a cdo cat and doing python make_inputs.py to make nest links.
+
+

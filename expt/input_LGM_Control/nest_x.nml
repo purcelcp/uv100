@@ -1,0 +1,31 @@
+&nest_input
+ xaxis= "lon" 
+ yaxis= "lat"
+ zaxis= "lev"
+ taxis= "time"
+ xstart=0
+ xend=360
+ ystart=-89.5
+ yend=89.5
+ zstart=6
+ zend=6
+ zaxis_positive_direction= "down"
+ tstart_yy=0001
+ tstart_mm=1
+ tstart_dd=1
+ tend_yy=0005
+ tend_mm=1
+ tend_dd=1
+ time_step=2635200
+ time_units= "months" 
+ lon_name= "lon"
+ lat_name= "lat" 
+ depth_name= "lev"
+ depth_conversion_factor=1
+ time_name= "time"
+ uvel_name= "UKO"
+ vvel_name= "VKE"
+ velocity_conversion_factor=1 
+ fill_value=1.2676506E30
+ agrid = .false.
+$end 

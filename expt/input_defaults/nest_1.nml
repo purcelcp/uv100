@@ -1,0 +1,28 @@
+&nest_input
+ zaxis_positive_direction= "down"
+ xstart=0
+ xend=359
+ ystart=-89.5
+ yend=89.5
+ tstart_yy=0001
+ tstart_mm=01
+ tstart_dd=01
+ tend_yy=0001
+ tend_mm=01
+ tend_dd=02
+ time_step=86400
+ time_units= "days" 
+ lon_nameU= "lon"
+ lon_nameV= "lon"
+ lat_nameU="lat" 
+ lat_nameV="lat" 
+ dep_nameU="lev"
+ dep_nameV="lev"
+ depth_conversion_factor=1
+ time_name= "time"
+ uvel_name= "UKO"
+ vvel_name= "VKE"
+ velocity_conversion_factor=1 
+ fill_value=1.2676506E30
+ agrid=.false.
+$end 

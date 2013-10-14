@@ -15,8 +15,8 @@
 
 ##### BEGIN USER INTERFACE
 #
-Exp_ID=$1   # CHECKME: Can arguements be passed via qsub?
-Data_source=$2  #Provide path in /csys/**/** that points to the RAW input file you want to use! (unrotated grid)
+Exp_ID='RCP6m'   
+Data_source='/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP6m/RCP6m-r_mpiom_3400-3499_Clim.nc'
 #   P. Gierz, 14.10.2013
 ##### END USER INTERFACE
 cd /uv/user/pgierz/tracers_1p2/expt/scripts

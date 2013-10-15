@@ -63,7 +63,7 @@ SUBROUTINE move(startR, endR,time_t)
  
 !repeat for all particles
  DO r=startR, endR
- print *, "Moving Particles..."
+ !print *, "Moving Particles..."
 ! only for MassSpawning, define how to move in vertical direction
   IF (massSpawning) THEN
    IF (eggTimePassed(r)) THEN

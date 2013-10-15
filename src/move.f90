@@ -32,6 +32,7 @@ SUBROUTINE move(startR, endR,time_t)
 
  IMPLICIT NONE
 
+ print *, "Moving Particles..."
 
  integer (kind=int_kind), intent(in) :: startR, endR
  integer (kind=int8_kind), intent(in) :: time_t

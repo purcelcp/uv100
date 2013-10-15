@@ -81,7 +81,7 @@
   u=value 
  ENDIF
  flag(1)=fail
-
+ print *, "U velocity for this particle is: ", u
 !calculate V-velocity
  CALL fld3_interp(grid_i(VAx),grid_j(VAx),grid_k(VAx),nests(ngrid)%idm(VAx),nests(ngrid)%jdm(VAx),nests(ngrid)%kdm(VAx), &
       nests(ngrid)%vvel(:,:,:,firstFile:firstFile+n_weight-1),nests(ngrid)%w(rk_step,:),n_weight,2.0**19, &
@@ -92,7 +92,7 @@
   v=value
  ENDIF
  flag(2)=fail
-
+ print *, "V velocity for this particle is: ", v
 !check if particle is too close to or on land
   IF (landFlag) THEN
 ! if subroutine is only called to check if particle is on land then 
@@ -109,6 +109,7 @@
    ELSE 
     landFlag = .false.
    ENDIF
+    print *, "Landflag is: ", landFlag
   ENDIF
 
 !calculate W-velocity     

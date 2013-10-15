@@ -15,8 +15,8 @@
 
 ##### BEGIN USER INTERFACE
 #
-Exp_ID='RCP6m'   
-Data_source='/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP6m/RCP6m-r_mpiom_3400-3499_Clim.nc'
+Exp_ID='RCP4m'   
+Data_source='/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3390-3410_Clim.nc'
 #   P. Gierz, 14.10.2013
 ##### END USER INTERFACE
 cd /uv/user/pgierz/tracers_1p2/expt/scripts

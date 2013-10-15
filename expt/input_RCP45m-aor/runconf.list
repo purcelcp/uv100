@@ -4,7 +4,7 @@ nnests               = 1
 timeMax              = 1586304000 
 timestep             = 2592000
 outputFreq           = 2592000
-releaseFilename      = "releaseFile_NBC" 
+releaseFilename      = "releaseFile_AL" 
 !====================================================================!
 !Turbulence Module
 turb                 = .false.

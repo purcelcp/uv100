@@ -178,7 +178,8 @@ SUBROUTINE stateout_trajfile_netcdf(n,r,run_time,time_t,exitCode,startR)
      particle(r)%old_latDist(n),nlon,nlat, cdist)
   ENDIF 
   particle(r)%dist(n) = particle(r)%dist(n) + cdist
-  dist = particle(r)%dist(n)  
+  dist = particle(r)%dist(n)
+  print *, "distance is: ", dist
  ELSE
   dist = -1
  ENDIF

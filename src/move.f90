@@ -32,8 +32,6 @@ SUBROUTINE move(startR, endR,time_t)
 
  IMPLICIT NONE
 
- print *, "Moving Particles..."
-
  integer (kind=int_kind), intent(in) :: startR, endR
  integer (kind=int8_kind), intent(in) :: time_t
 
@@ -65,7 +63,7 @@ SUBROUTINE move(startR, endR,time_t)
  
 !repeat for all particles
  DO r=startR, endR
-
+ print *, "Moving Particles..."
 ! only for MassSpawning, define how to move in vertical direction
   IF (massSpawning) THEN
    IF (eggTimePassed(r)) THEN

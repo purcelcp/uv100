@@ -1,7 +1,7 @@
 &runconf
 !====================================================================!
 nnests               = 1 
-timeMax              = 1586304000 
+timeMax              = 3153600000 
 timestep             = 2592000
 outputFreq           = 2592000
 releaseFilename      = "releaseFile_AL" 
@@ -16,7 +16,7 @@ turbTimestep         = 2700             !in seconds
 periodicbc           = .true.
 !====================================================================!
 !Landmask Boundary Condition 
-avoidcoast           = .false.
+avoidcoast           = .true.
 !====================================================================!
 !Backward Tracking Module
 backward             = .false.
@@ -33,7 +33,7 @@ loopfiles               = .true.
 loopfilesstartyear      = 3336
 loopfilesstartmonth     = 1
 loopfilesstartday       = 31
-loopfilesendyear        = 3387
+loopfilesendyear        = 3346
 loopfilesendmonth       = 12
 loopfilesendday         = 31
 !====================================================================!

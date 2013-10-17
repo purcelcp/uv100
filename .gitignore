@@ -37,3 +37,6 @@ nosetests.xml
 
 # Model Outputs
 *.nc
+
+# Local Scripts
+LOCAL*

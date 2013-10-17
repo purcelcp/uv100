@@ -46,7 +46,7 @@ z=xy
 
 # lon_0, lat_0 are the center point of the projection.
 # resolution = 'l' means use low resolution coastlines.
-m = Basemap(projection='ortho',lon_0=23,lat_0=-36.5,resolution='l')
+m = Basemap(llcrnrlon=0,llcrnrlat=-80,urcrnrlon=360,urcrnrlat=80,projection='mill')
 m.drawcoastlines()
 m.fillcontinents(color='coral',lake_color='aqua')
 # draw parallels and meridians.
@@ -54,9 +54,11 @@ m.drawparallels(np.arange(-90.,120.,30.))
 m.drawmeridians(np.arange(0.,420.,60.))
 m.drawmapboundary(fill_color='aqua')
 
+xpts, ypts = m(lon, lat)
+
 
 for i in range(lon.shape[0]) :
-    ps = m.scatter(lon[i,:], lat[i,:], c=z, cmap = cm, alpha = 0.5, linewidth = 1)
+    ps = m.scatter(xpts[i,:], ypts[i,:], c=z, cmap = cm, alpha = 0.5, linewidth = 1)
     #plt.figure()
     #plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
     #pl = plt.plot(lon[i,:], lat[i,:], alpha = 0.5)

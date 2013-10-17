@@ -4,7 +4,7 @@ nnests               = 1
 timeMax              = 3153600000 
 timestep             = 2592000
 outputFreq           = 2592000
-releaseFilename      = "releaseFile_STG" 
+releaseFilename      = "releaseFile_SGT" 
 !====================================================================!
 !Turbulence Module
 turb                 = .false.

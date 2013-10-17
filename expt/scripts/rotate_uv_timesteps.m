@@ -26,7 +26,7 @@ lat = permute(lat,[2,1]);
 netcdf.close(ncid_file2);
 
 %filename = ['/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity.nc'];
-filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003.nc']
+filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035.nc']
 
 ncid_file   = netcdf.open([filename],'NC_WRITE');
 varid_u = netcdf.inqVarID(ncid_file,'UKO');
@@ -94,11 +94,11 @@ fprintf('Regridding...');
 clear all;
 
 
-unix('cdo -t mpiom1 -f nc setgrid,/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc -setgrid,r122x101 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid.nc');
-unix('cdo remapcon,r360x180 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid_r360x180.nc');
-unix('mv /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid_r360x180.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid_r360x180_final.nc');
+unix('cdo -t mpiom1 -f nc setgrid,/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc -setgrid,r122x101 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid.nc');
+unix('cdo remapcon,r360x180 /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid_r360x180.nc');
+unix('mv /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid_r360x180.nc /uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid_r360x180_final.nc');
 
-filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000003_normalgrid_r360x180_final.nc'];
+filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/RCP4m_velocity_000035_normalgrid_r360x180_final.nc'];
 ncid_file   = netcdf.open([filename],'NC_WRITE');
 varid_u = netcdf.inqVarID(ncid_file,'UKO');
 u_original = netcdf.getVar(ncid_file,varid_u);

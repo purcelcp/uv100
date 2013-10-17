@@ -4,10 +4,10 @@
  xend=359
  ystart=-89.5
  yend=89.5
- tstart_yy=3336
+ tstart_yy=0001
  tstart_mm=01
  tstart_dd=31
- tend_yy=3346
+ tend_yy=0050
  tend_mm=12
  tend_dd=31
  time_step=2592000

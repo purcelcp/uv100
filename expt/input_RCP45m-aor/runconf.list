@@ -1,7 +1,7 @@
 &runconf
 !====================================================================!
 nnests               = 1 
-timeMax              = 3153600000 
+timeMax              = 1576800000 
 timestep             = 2592000
 outputFreq           = 2592000
 releaseFilename      = "releaseFile_AL" 
@@ -22,7 +22,7 @@ avoidcoast           = .true.
 backward             = .false.
 !====================================================================!
 !Output files in ASCII instead of netCDF
-ascii                = .false.
+ascii                = .true.
 !====================================================================!
 !Flag for putting particles back in the ocean when they go through the
 !uppermost depth level
@@ -30,10 +30,10 @@ upperlevelsurface       = .true.
 !====================================================================!
 !Flag for looping through the velocity fields
 loopfiles               = .true.
-loopfilesstartyear      = 3336
+loopfilesstartyear      = 0001
 loopfilesstartmonth     = 1
 loopfilesstartday       = 31
-loopfilesendyear        = 3346
+loopfilesendyear        = 0049
 loopfilesendmonth       = 12
 loopfilesendday         = 31
 !====================================================================!

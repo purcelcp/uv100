@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		0EB6ABDC180EAAFE00EDDB76 /* LOCAL_anim.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = LOCAL_anim.py; sourceTree = "<group>"; };
 		0EE9D07B180C31DF0046AB83 /* mpi_compiler */ = {isa = PBXFileReference; lastKnownFileType = text; path = mpi_compiler; sourceTree = "<group>"; };
 		0EE9D07D180C31DF0046AB83 /* cms.f90 */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran.f90; path = cms.f90; sourceTree = "<group>"; };
 		0EE9D07E180C31DF0046AB83 /* dealloc.f90 */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran.f90; path = dealloc.f90; sourceTree = "<group>"; };
@@ -23,7 +24,7 @@
 		0EE9D089180C31DF0046AB83 /* input.f90 */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran.f90; path = input.f90; sourceTree = "<group>"; };
 		0EE9D08A180C31DF0046AB83 /* lonlat2ij.f90 */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran.f90; path = lonlat2ij.f90; sourceTree = "<group>"; };
 		0EE9D08C180C31DF0046AB83 /* cms */ = {isa = PBXFileReference; lastKnownFileType = file; path = cms; sourceTree = "<group>"; };
-		0EE9D08F180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_raw; sourceTree = "<group>"; };
+		0EE9D08F180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw; sourceTree = "<group>"; };
 		0EE9D090180C31DF0046AB83 /* data_raw.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw.txt; sourceTree = "<group>"; };
 		0EE9D091180C31DF0046AB83 /* make_dates.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = make_dates.py; sourceTree = "<group>"; };
 		0EE9D093180C31DF0046AB83 /* figure_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = figure_1.png; sourceTree = "<group>"; };
@@ -42,13 +43,13 @@
 		0EE9D0A1180C31DF0046AB83 /* restart_file_7.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = restart_file_7.bin; sourceTree = "<group>"; };
 		0EE9D0A2180C31DF0046AB83 /* restart_file_8.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = restart_file_8.bin; sourceTree = "<group>"; };
 		0EE9D0A3180C31DF0046AB83 /* restart_file_9.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = restart_file_9.bin; sourceTree = "<group>"; };
-		0EE9D0A6180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_raw; sourceTree = "<group>"; };
+		0EE9D0A6180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw; sourceTree = "<group>"; };
 		0EE9D0A7180C31DF0046AB83 /* data_raw.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw.txt; sourceTree = "<group>"; };
 		0EE9D0A8180C31DF0046AB83 /* make_dates.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = make_dates.py; sourceTree = "<group>"; };
 		0EE9D0AA180C31DF0046AB83 /* figure_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = figure_1.png; sourceTree = "<group>"; };
 		0EE9D0AB180C31DF0046AB83 /* plot_traj.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = plot_traj.py; sourceTree = "<group>"; };
 		0EE9D0AD180C31DF0046AB83 /* restart_file_1.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = restart_file_1.bin; sourceTree = "<group>"; };
-		0EE9D0B0180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = data_raw; sourceTree = "<group>"; };
+		0EE9D0B0180C31DF0046AB83 /* data_raw */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw; sourceTree = "<group>"; };
 		0EE9D0B1180C31DF0046AB83 /* data_raw.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data_raw.txt; sourceTree = "<group>"; };
 		0EE9D0B2180C31DF0046AB83 /* make_dates.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = make_dates.py; sourceTree = "<group>"; };
 		0EE9D0B4180C31DF0046AB83 /* figure_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = figure_1.png; sourceTree = "<group>"; };
@@ -113,7 +114,7 @@
 		0EE9D0F9180C31E00046AB83 /* make_dates.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = make_dates.py; sourceTree = "<group>"; };
 		0EE9D0FA180C31E00046AB83 /* new_run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = new_run.sh; sourceTree = "<group>"; };
 		0EE9D0FB180C31E00046AB83 /* plot_traj.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = plot_traj.py; sourceTree = "<group>"; };
-		0EE9D0FC180C31E00046AB83 /* rotate_batch.run */ = {isa = PBXFileReference; lastKnownFileType = text; path = rotate_batch.run; sourceTree = "<group>"; };
+		0EE9D0FC180C31E00046AB83 /* rotate_batch.run */ = {isa = PBXFileReference; lastKnownFileType = text; path = rotate_batch.run; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.sh; };
 		0EE9D0FD180C31E00046AB83 /* rotate_template.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rotate_template.m; sourceTree = "<group>"; };
 		0EE9D0FE180C31E00046AB83 /* rotate_uv_timesteps.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rotate_uv_timesteps.m; sourceTree = "<group>"; };
 		0EE9D100180C31E00046AB83 /* draw_traj_ascii.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = draw_traj_ascii.m; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		0EE9D164180C31E00046AB83 /* updateloc.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = updateloc.o; sourceTree = "<group>"; };
 		0EE9D165180C31E00046AB83 /* util.f90 */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.fortran.f90; path = util.f90; sourceTree = "<group>"; };
 		0EE9D166180C31E00046AB83 /* util.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = util.o; sourceTree = "<group>"; };
+		0EE9D167180D8ABB0046AB83 /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -529,6 +531,8 @@
 				0EE9D0FB180C31E00046AB83 /* plot_traj.py */,
 				0EE9D0FC180C31E00046AB83 /* rotate_batch.run */,
 				0EE9D0FD180C31E00046AB83 /* rotate_template.m */,
+				0EE9D167180D8ABB0046AB83 /* TODO */,
+				0EB6ABDC180EAAFE00EDDB76 /* LOCAL_anim.py */,
 				0EE9D0FE180C31E00046AB83 /* rotate_uv_timesteps.m */,
 			);
 			path = scripts;

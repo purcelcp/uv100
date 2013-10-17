@@ -7,12 +7,6 @@
 #PBS -r n
 #PBS -M paul.gierz@awi.de
 
-#TODO
-# code for expid and filename automation <-- Done, needs testing
-# code to generate seperate files with 30 timesteps per file. <-- Done, needs testing
-# code for WORKLIST generation
-#   Notes: the WORKLIST needs to list all cdo seperated files WITHOUT nc extension
-
 ##### BEGIN USER INTERFACE
 #
 Exp_ID='RCP4m'   
@@ -36,10 +30,6 @@ do
     basename ${f%.*} >> /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST;
 done
 lastfile='XXXX'    #define first lastfile by hand
-
-# TODO Consider replacing the lastfile by an arbitrary XXXX in a matlab_templat.m file
-# that is then copied at the beginning of the loop. <-- Done, needs testing
-
 
 #get length of WORKLIST to see how often to run matlab batch
 redo=`sed -n '$=' /uv/user/pgierz/tracers_1p2/expt/raw_inputs/WORKLIST`
@@ -69,3 +59,10 @@ ln -s /uv/user/pgierz/tracers_1p2/expt/finished_inputs/${Exp_ID}_finished.nc /uv
 ln -s /uv/user/pgierz/tracers_1p2/expt/scripts/make_dates.py /uv/user/pgierz/tracers_1p2/expt/expt_${Exp_ID}/nests
 cd /uv/user/pgierz/tracers_1p2/expt/expt_${Exp_ID}/nests/
 python make_dates.py
+
+if run_cms;
+then
+    mpirun -np 1 ./cms ${Exp_ID}
+fi
+
+echo "Done!"

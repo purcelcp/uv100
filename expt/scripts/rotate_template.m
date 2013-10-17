@@ -1,18 +1,8 @@
 close all; clear all; clc;
 
 fprintf('working...');
-%echo on
 
 cd /uv/user/pgierz/tracers_1p2/expt/raw_inputs;
-
-%load mpiom_gr30s.mat;
-
-% Prior to use this script, the file of mpiom output needs to be transformed to the netcdf, using following command:
-% cdo -f nc copy input output
-
-% For long timescales >600 timesteps, this script fails for some unknown reason. 
-% It is then best to split the original file into two separat files, and
-% perform the transformation twice, thereafter recombining the files.
 
 filename = ['/csys/nobackup1_PALEO/pgierz/dump/GR30s.nc'];
 
@@ -25,7 +15,6 @@ lat = netcdf.getVar(ncid_file2,GR30_lat);
 lat = permute(lat,[2,1]);
 netcdf.close(ncid_file2);
 
-%filename = ['/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-r_mpiom_3336-3389_Clim_velocity.nc'];
 filename = ['/uv/user/pgierz/tracers_1p2/expt/raw_inputs/XXXX.nc']
 
 ncid_file   = netcdf.open([filename],'NC_WRITE');
@@ -39,7 +28,6 @@ vij = permute(vij,[2,1,3,4]);
 fprintf('Starting loop, working...');
 
 ie=120;je=101;ke=40;
-%ie=120;je=100;ke=40;
 xc=lon; k=find(xc>180);xc(k)=xc(k)-360;
 yc=lat;
 for ts=1:30
@@ -77,11 +65,6 @@ vxy(find(abs(vxy)>100)) = uij(1,1,1,1);
 
 uxy = permute(uxy,[2,1,3,4]);
 vxy = permute(vxy,[2,1,3,4]);
-
-
-%filename1 = ['/csys/nobackup2_PALEO/sbora/wind/mfiles/pihs02_mpiom_year2497_rotvel.nc'];
-
-%ncid_file1   = netcdf.open([filename],'NC_WRITE');
 
 netcdf.putVar(ncid_file,varid_u, uxy);
 netcdf.putVar(ncid_file,varid_v, vxy);

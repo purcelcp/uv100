@@ -1,0 +1,23 @@
+
+\documentclass[11pt]{report}
+\usepackage{classicthesis}
+\begin{document}
+
+\title{Using the CMS Software Suite at AWI}
+\author{Paul Gierz}
+\date{\today}
+\maketitle
+%\tableofcontents
+
+\section*{Motivation}
+In order to determine transport of water masses in the \textsc{cosmos} climate model, an Eularian approximation is insufficient, and thus a Lagrangian transport calculation is required. Thus far, such Lagranian tracer studies have been performed for present day observation, to our knowledge, such analysis has not yet been performed on paleoclimate simulations.
+
+The \texttt{connectivity modeling suite} is an offline software which can calculate trajectories of particles based upon the $u$, $v$, and $w$ velocity output of the \textsc{mpiom} compontent of \textsc{cosmos}. The application is not limited to this model, however, since the entire tool is run offline, any field on a 1x1 grid can be used.
+
+\section*{Technical Requirements}
+The following points should be taken into account when using \texttt{cms}:
+\texttt{cms} runs on the \texttt{uv100}. Apply for an account there.
+\texttt{uv100} has a premounted read-only file system that mirrors the \texttt{/csys} drives on the \texttt{rayo} servers. It is easiest to place model output in a folder such as \texttt{\verbatim{/csys/nobackup1_PALEO/pgierz/....}}.
+%Several modules need to be loaded into your bash environment. Adding the following to your \textit{.basrc} is useful: \textt{module load mpt netcdf intel.compiler}
+\end{document}
+			

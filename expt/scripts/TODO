@@ -1,0 +1,18 @@
+TODO:
+    High Priority
+        - Some particles vanish and aren't advected
+        - Some particles don't bounce off the continent despite avoidcoastlines = .true.
+        - Only africa setup works instinctively
+        - Other runs only work if copying LGM to LGM2 and relinking data_raw in expt_LGM2/nests
+                -- Why??? This makes no sense
+
+    Middle Priority
+        - Nice graphics
+        - Check Gregor's AO Control to get a baseline for various currents
+        - Check mort module to include radiodecay of eg C14 or Usomething to Pbsomethingelse
+        - Volumetric Flow Rate versus Euler
+
+    Low Priority
+        - get everything into one qsub script, including python graphic scripts
+        - clean up the qsub script to make it more flexibile with defining certain
+            paths directly in the user interface, ie username, working directories

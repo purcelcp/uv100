@@ -3,7 +3,7 @@ from scipy.io import netcdf
 import matplotlib.pyplot as plt
 import sys, getopt
 from mpl_toolkits.basemap import Basemap
-
+import matplotlib
 
 def main(argv):
     inputfile = ''
@@ -21,10 +21,10 @@ def main(argv):
             inputfile = arg
         elif opt in ("-o", "--ofile"):
             outputfile = arg
-    return inputfile outputfile
+    return inputfile, outputfile
 
 
-fin, fout = main(argv[1:])
+fin, fout = main(sys.argv[1:])
 nest_filename='../nests/data_raw'
 
 

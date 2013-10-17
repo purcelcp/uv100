@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 nest_filename='../nests/data_raw'
-traj_filename='traj_file_1.nc'
+traj_filename='traj_file_01.nc'
 
 lonAxis = netcdf.netcdf_file(nest_filename, 'r').variables['lon'].data.squeeze()
 latAxis = netcdf.netcdf_file(nest_filename, 'r').variables['lat'].data.squeeze()
@@ -21,11 +21,11 @@ z=xy
 mask = np.ma.masked_equal(uvel, -8.99999987e+33)[0,:,:].squeeze()
 plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
 for i in range(lon.shape[0]) :
-    #ps = plt.scatter(lon[i,:], lat[i,:], c=z, cmap = cm, alpha = 0.5, linewidth = 1)
+    ps = plt.scatter(lon[i,:], lat[i,:], c=z, cmap = cm, alpha = 0.5, linewidth = 1)
     #plt.figure()
     #plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
-    pl = plt.plot(lon[i,:], lat[i,:], alpha = 0.5)
-#cbar = plt.colorbar(ps)
-#cbar.set_label('Age (months)')
+    #pl = plt.plot(lon[i,:], lat[i,:], alpha = 0.5)
+cbar = plt.colorbar(ps)
+cbar.set_label('Age (months)')
 plt.show()
-
+#plt.savefig('figure1.png')

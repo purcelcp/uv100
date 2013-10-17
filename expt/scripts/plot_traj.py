@@ -58,11 +58,11 @@ xpts, ypts = m(lon, lat)
 
 
 for i in range(lon.shape[0]) :
-    ps = m.scatter(xpts[i,:], ypts[i,:], c=z, cmap = cm, alpha = 0.5, linewidth = 1)
+    ps = m.scatter(xpts[i,:], ypts[i,:], c=z, cmap = cm, alpha = 0.5, s=5 linewidth=0)
     #plt.figure()
     #plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
     #pl = plt.plot(lon[i,:], lat[i,:], alpha = 0.5)
-cbar = plt.colorbar(ps)
-cbar.set_label('Age (months)')
+#cbar = plt.colorbar(ps)
+#cbar.set_label('Age (months)')
 plt.show()
 #plt.savefig('figure1.png')

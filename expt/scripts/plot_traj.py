@@ -44,6 +44,8 @@ z=xy
 colors = matplotlib.cm.rainbow(np.linspace(0, 1, len(z)))
 #print colors
 
+plt.subplot(211)
+
 # lon_0, lat_0 are the center point of the projection.
 # resolution = 'l' means use low resolution coastlines.
 m = Basemap(llcrnrlon=0,llcrnrlat=-80,urcrnrlon=360,urcrnrlat=80,projection='mill')
@@ -65,6 +67,11 @@ for i in range(lon.shape[0]) :
 #cbar.set_label('Age (months)')
 
 m.plot(xpts[:,0], ypts[:,0], 'w*', markersize=20)
+
+plt.subplot(212)
+for i in range(lon.shape[0]) :
+    plt.plot(depth[i,:])
+
 if fout == 'open' :
     plt.show()
 else :

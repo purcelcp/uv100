@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import numpy as np
 from scipy.io import netcdf
 import matplotlib.pyplot as plt
@@ -40,9 +41,8 @@ cm = matplotlib.cm.get_cmap('jet')
 xy = range(lat[0,:].size)
 z=xy
 
-#mask = np.ma.masked_equal(uvel, -8.99999987e+33)[0,:,:].squeeze()
-#plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
-
+colors = matplotlib.cm.rainbow(np.linspace(0, 1, len(z)))
+#print colors
 
 # lon_0, lat_0 are the center point of the projection.
 # resolution = 'l' means use low resolution coastlines.
@@ -56,13 +56,18 @@ m.drawmapboundary(fill_color='aqua')
 
 xpts, ypts = m(lon, lat)
 
-
 for i in range(lon.shape[0]) :
-    ps = m.scatter(xpts[i,:], ypts[i,:], c=z, cmap = cm, alpha = 0.5, s=5 linewidth=0)
+    #ps = m.scatter(xpts[i,:], ypts[i,:], alpha = 0.5, s=10, linewidth=0)
     #plt.figure()
     #plt.contourf(lonAxis,latAxis, mask[0,:,:].squeeze())
-    #pl = plt.plot(lon[i,:], lat[i,:], alpha = 0.5)
+    pl = m.plot(xpts[i,:], ypts[i,:], '.', alpha = 0.5)
 #cbar = plt.colorbar(ps)
 #cbar.set_label('Age (months)')
-plt.show()
-#plt.savefig('figure1.png')
+
+m.plot(xpts[:,0], ypts[:,0], 'w*', markersize=20)
+if fout == 'open' :
+    plt.show()
+else :
+    plt.savefig(fout)
+
+sys.exit()

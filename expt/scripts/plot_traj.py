@@ -36,6 +36,7 @@ uvel = netcdf.netcdf_file(nest_filename, 'r').variables['UKO'].data.squeeze()
 
 lon = np.ma.masked_equal(netcdf.netcdf_file(fin, 'r').variables['lon'].data.squeeze(), 1.26765060e+30)
 lat = np.ma.masked_equal(netcdf.netcdf_file(fin, 'r').variables['lat'].data.squeeze(), 1.26765060e+30)
+depth = np.ma.masked_equal(netcdf.netcdf_file(fin, 'r').variables['depth'].data.squeeze(), 1.26765060e+30)
 
 cm = matplotlib.cm.get_cmap('jet')
 xy = range(lat[0,:].size)
@@ -71,7 +72,8 @@ m.plot(xpts[:,0], ypts[:,0], 'w*', markersize=20)
 plt.subplot(212)
 for i in range(lon.shape[0]) :
     plt.plot(depth[i,:])
-
+    plt.xlabel('Time (months)')
+    plt.ylabel('Depth (m)')
 if fout == 'open' :
     plt.show()
 else :

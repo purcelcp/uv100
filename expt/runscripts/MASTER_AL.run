@@ -1,0 +1,13 @@
+#PBS -N LGM1000AL
+#PBS -l walltime=18:00:00
+#PBS -l select=1:ncpus=1
+#PBS -j oe
+#PBS -m bea
+#PBS -S /bin/bash
+#PBS -r n
+#PBS -M paul.gierz@awi.de
+
+module load mpt netcdf intel.compiler
+
+cd /uv/user/pgierz/tracers_1p2/expt
+mpirun -np 10 ./cms MASTER 

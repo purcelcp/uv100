@@ -333,8 +333,8 @@ SUBROUTINE load_release_info
 !close file
  call release_unit(iunit)
 
-!print *, "Finished loading release data" 
-!print *, "No of Release Locations = ", sze 
+print *, "Finished loading release data"
+print *, "No of Release Locations = ", sze
 
 END SUBROUTINE load_release_info
 

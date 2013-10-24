@@ -133,7 +133,7 @@ SUBROUTINE fld3_interp (ilon, ilat, idepth, nlon, nlat, ndepth, fld, &
      j1 = 1; j2 = 4
      DO j = j1, j2
       DO i = i1, i2
-!      print *, i, " ", j, ": ", fld2d(i,j)
+      print *, i, " ", j, ": ", fld2d(i,j)  ! PG: Debug for Land ON
        IF (fld2d(i,j) .gt. fillvalue) THEN
         bicubic = .false.
        ENDIF
@@ -297,7 +297,7 @@ SUBROUTINE fld3_interp (ilon, ilat, idepth, nlon, nlat, ndepth, fld, &
     DO k = k1, k2
      DO j = j1, j2
       DO i = i1, i2
-!       print *, i, " ", j, " ", k, ": ", fld3d(i,j,k)
+       print *, i, " ", j, " ", k, ": ", fld3d(i,j,k)   ! PG Debug for Land ON
        IF (abs(fld3d(i,j,k)) .gt. fillvalue) THEN
         tricubic = .false.
         IF ((i .eq. 2 .or. i .eq. 3) .and. (j .eq. 2 .or. j .eq. 3) .and. (k .eq. 2 .or. k .eq. 3)) THEN
@@ -312,7 +312,7 @@ SUBROUTINE fld3_interp (ilon, ilat, idepth, nlon, nlat, ndepth, fld, &
     ENDDO
 
 !   if one of the 8 points is on land than USE different interpolation
-!   print *, "Points on land: ", countLand
+   print *, "Points on land: ", countLand   ! PG: Debug for Land ON
     IF ((avoidCoast) .or. (idepth_int .gt. 1)) THEN
      IF ((countLand .le. 8) .and. (countLand .gt. 0))  THEN
       landinterp = .true.
@@ -332,7 +332,7 @@ SUBROUTINE fld3_interp (ilon, ilat, idepth, nlon, nlat, ndepth, fld, &
         distance = ((ilon_int+i-2)-ilon)*((ilon_int+i-2)-ilon) &
                  + ((ilat_int+j-2)-ilat)*((ilat_int+j-2)-ilat) &
                  + ((idepth_int+k-2)-idepth)*((idepth_int+k-2)-idepth)
-!       print *, "field: ", fld3d(i,j,k)
+       print *, "field: ", fld3d(i,j,k) ! PG: Debug for Land ON
         IF (distance .eq. 0.) THEN
          IF (fld3d(i,j,k) .lt. fillvalue) THEN
           value = fld3d(i,j,k)

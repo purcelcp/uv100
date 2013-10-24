@@ -11,6 +11,7 @@
 #
 Exp_ID='RCP4m'   
 Data_source='/csys/nobackup1_PALEO/pgierz/Data_Raw/mpiom/Clim/aor/RCP4m/RCP4.5m-s_mpiom_3400-3499_Clim.nc'
+run_cms=false # True/False flag to automatically run cms: DOES NOT WORK YET...too much needs to be configured by hand to make this useful yet...
 #   P. Gierz, 14.10.2013
 ##### END USER INTERFACE
 cd /uv/user/pgierz/tracers_1p2/expt/scripts

@@ -69,8 +69,8 @@ SUBROUTINE updateloc(lon_old,lat_old,depth_old,u,v,w,flag,tmstp,lon_new,lat_new,
   lat_new=rlt2*rad2deg;
   depth_new=depth_old+dz
 
-  print *, "  The particle now has the position: ", lon_new, lat_new, depth_new
-  print *, "  \---> compare against: ", lon_old, lat_old, depth_old
+!  print *, "  The particle now has the position: ", lon_new, lat_new, depth_new
+!  print *, "  \---> compare against: ", lon_old, lat_old, depth_old
 
 ! longitude values have to be between 0 and 360
   DO WHILE (lon_new .lt. 0.)

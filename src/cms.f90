@@ -38,7 +38,7 @@ PROGRAM CMS
 
  my_id = 0 !used if not using mpi
  npes = 1 !used if not using mpi
- print *, "Hi there!"
+! print *, "Hi there!"
 !initialise MPI
  CALL MPI_INIT(ierr) !remove if not using mpi
 !what processor am I (what is my rank)?

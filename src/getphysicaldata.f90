@@ -45,7 +45,7 @@ SUBROUTINE getphysicaldata(time_t, basedate)
  logical (kind=log_kind), save   :: wExist, densExist, tempExist, salExist,sshExist, mldExist
  character(char_len),allocatable :: fname(:,:)
  character(char_len)             :: fnamemld
- print *, "Getting physical data..."
+ !print *, "Getting physical data..."
  DO i=1,nnests
   firsttime = .false.
 
@@ -72,17 +72,17 @@ SUBROUTINE getphysicaldata(time_t, basedate)
 
 ! check if all the filenames exist 
   nests(i)%dataExist = .true.
-  print *, "Check if filename exists: ", nests(i)%dataExist
+ ! print *, "Check if filename exists: ", nests(i)%dataExist
   DO fileNumber = 1,numberFiles  
    INQUIRE(FILE=fname(UAx,fileNumber), EXIST=file_exists)
-   print *, "PG: Checking file: ", fname(UAx, fileNumber), "Result:", file_exists
+  ! print *, "PG: Checking file: ", fname(UAx, fileNumber), "Result:", file_exists
    IF (file_exists .eqv. .false.) THEN
     nests(i)%dataExist = .false.
    ENDIF
   ENDDO
-  print *, "Check again if filename exists: ", nests(i)%dataExist
+ ! print *, "Check again if filename exists: ", nests(i)%dataExist
 
-  print *, "PG: Checking if data has already been read..."
+  !print *, "PG: Checking if data has already been read..."
 ! only read data from files if not done before
   IF (nests(i)%fnameold .eq. "") THEN
      firsttime = .true.
@@ -92,8 +92,8 @@ SUBROUTINE getphysicaldata(time_t, basedate)
     readdata = .false.
   ENDIF
   nests(i)%fnameold = fname(UAx,1)
-  print *, "Read data: ", readdata   
-  print *, "Nest Condition: ", nests(i)%dataExist
+ ! print *, "Read data: ", readdata   
+ ! print *, "Nest Condition: ", nests(i)%dataExist
   IF (readdata .and. nests(i)%dataExist) then
    wExist = .false.
    densExist = .false.
@@ -101,7 +101,7 @@ SUBROUTINE getphysicaldata(time_t, basedate)
    salExist = .false.
 
 
-  print *, "PG: Done checking..."
+!  print *, "PG: Done checking..."
 
 !  only download the last filename 
 !  except if it is the first time that data is downloaded
@@ -131,7 +131,7 @@ SUBROUTINE getphysicaldata(time_t, basedate)
         ENDIF
      ENDDO
    ENDIF
-   print *, "PG: some code block is finsihed..."
+  ! print *, "PG: some code block is finsihed..."
 
 !  Get data from all the different filenames
    DO fileNumber = startFile,numberFiles        
@@ -172,7 +172,7 @@ SUBROUTINE getphysicaldata(time_t, basedate)
                    nests(i)%idm(UAx),nests(i)%jdm(UAx),nests(i)%kdm(UAx),1,snapshotvec)
     CALL nc_close(fname(UAx,fileNumber), ncId) 
 
-    print *, "U Velocity was read!" 
+    !print *, "U Velocity was read!" 
 
 !   read V-velocity
     CALL nc_open(trim(fname(VAx,fileNumber)),ncId)       
